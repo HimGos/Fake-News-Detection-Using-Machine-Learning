@@ -49,12 +49,12 @@ try:
         raise
 
     # Download NLTK stopwords
-    logger.info("Downloading NLTK stopwords")
-    try:
-        nltk.download('stopwords')
-    except Exception as e:
-        logger.error(f"Failed to download NLTK stopwords: {str(e)}")
-        raise
+    # logger.info("Downloading NLTK stopwords")
+    # try:
+    #     nltk.download('stopwords')
+    # except Exception as e:
+    #     logger.error(f"Failed to download NLTK stopwords: {str(e)}")
+    #     raise
 
 
     def stemming(content):
