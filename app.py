@@ -41,9 +41,6 @@ try:
         vectorizer = pickle.load(open('model/tfidf.pkl', 'rb'))
         model = pickle.load(open('model/model.pkl', 'rb'))
         logger.info("Model and vectorizer loaded successfully")
-    except FileNotFoundError as e:
-        logger.error(f"Model or vectorizer file not found: {str(e)}")
-        raise
     except Exception as e:
         logger.error(f"Error loading model or vectorizer: {str(e)}")
         raise
