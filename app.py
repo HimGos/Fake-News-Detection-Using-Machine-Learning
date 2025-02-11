@@ -8,7 +8,6 @@ import logging
 import os
 from datetime import datetime
 
-
 # Configure logging
 def setup_logger():
     log_directory = "logs"
@@ -28,7 +27,6 @@ def setup_logger():
     )
     return logging.getLogger(__name__)
 
-
 logger = setup_logger()
 
 try:
@@ -41,7 +39,6 @@ try:
     model = pickle.load(open('model/model.pkl', 'rb'))
     logger.info("Model and vectorizer loaded successfully")
     
-
     # Download NLTK stopwords
     # logger.info("Downloading NLTK stopwords")
     # try:
@@ -62,7 +59,6 @@ try:
             logger.error(f"Error in stemming process: {str(e)}")
             raise
 
-
     def fake_news(news):
         try:
             if not news.strip():
@@ -79,7 +75,6 @@ try:
         except Exception as e:
             logger.error(f"Error in fake news detection: {str(e)}")
             raise
-
 
     if __name__ == '__main__':
         st.title('Fake News Detection App')
