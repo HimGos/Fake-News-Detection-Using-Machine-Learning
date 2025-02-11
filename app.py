@@ -37,13 +37,10 @@ try:
 
     # Load models
     logger.info("Loading trained model and vectorizer")
-    try:
-        vectorizer = pickle.load(open('model/tfidf.pkl', 'rb'))
-        model = pickle.load(open('model/model.pkl', 'rb'))
-        logger.info("Model and vectorizer loaded successfully")
-    except Exception as e:
-        logger.error(f"Error loading model or vectorizer: {str(e)}")
-        raise
+    vectorizer = pickle.load(open('model/tfidf.pkl', 'rb'))
+    model = pickle.load(open('model/model.pkl', 'rb'))
+    logger.info("Model and vectorizer loaded successfully")
+    
 
     # Download NLTK stopwords
     # logger.info("Downloading NLTK stopwords")
@@ -52,7 +49,6 @@ try:
     # except Exception as e:
     #     logger.error(f"Failed to download NLTK stopwords: {str(e)}")
     #     raise
-
 
     def stemming(content):
         try:
