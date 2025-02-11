@@ -1,5 +1,6 @@
 import re
 import pickle
+import nltk
 import streamlit as st
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
@@ -7,6 +8,9 @@ from nltk.stem.porter import PorterStemmer
 port_stem = PorterStemmer()
 vectorizer = pickle.load(open('model/tfidf.pkl', 'rb'))
 model = pickle.load(open('model/model.pkl', 'rb'))
+
+#downloading stopwords from nltk
+nltk.download('stopwords')
 
 def stemming(content):
     con=re.sub('[^a-zA-Z]', ' ', content)
@@ -27,7 +31,7 @@ if __name__ == '__main__':
     st.title('Fake News Detection App')
     st.subheader("by - Himanshu Goswami")
     sentence = st.text_area("Enter your news content here", "",height=200)
-    predict_btt = st.button("predict")
+    predict_btt = st.button("Predict")
     if predict_btt:
         prediction_class=fake_news(sentence)
         print(prediction_class)

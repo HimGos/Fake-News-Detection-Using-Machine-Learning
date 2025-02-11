@@ -1,4 +1,5 @@
 import pandas as pd
+import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 import re
@@ -18,6 +19,9 @@ dataframe = dataframe.drop(['id', 'title', 'author'], axis=1)
 
 # Stemming the data
 port_stem = PorterStemmer()
+
+#downloading stopwords from nltk
+nltk.download('stopwords')
 
 def stemming(content):
     con = re.sub('[^a-zA-Z]', ' ', content)
@@ -48,7 +52,6 @@ prediction = model.predict(X_test)
 print(prediction)
 # Checking score
 print(model.score(X_test, y_test))
-
 
 # Saving model & Vectorizer
 pickle.dump(model, open('model.pkl', 'wb'))
