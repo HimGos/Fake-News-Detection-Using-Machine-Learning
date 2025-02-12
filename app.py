@@ -44,6 +44,18 @@ try:
 
 
     def stemming(content):
+        """
+        Performs preprocessing and stemming on the input text content.
+    
+        Args:
+            content (str): The input text to preprocess and stem.
+    
+        Returns:
+            str: The processed and stemmed text.
+    
+        Raises:
+            Exception: If any error occurs during the stemming process.
+        """
         try:
             con = re.sub('[^a-zA-Z]', ' ', content)
             con = con.lower()
@@ -56,6 +68,21 @@ try:
             raise
 
     def fake_news(news):
+         """
+        Predicts whether the input news is fake or reliable.
+
+        Args:
+            news (str): Input news text content
+
+        Returns:
+            List[int]: Prediction result where:
+                - [0] indicates reliable news
+                - [1] indicates unreliable news
+
+        Raises:
+            ValueError: If news content is empty or invalid
+            ModelError: If prediction fails
+        """
         try:
             if not news.strip():
                 logger.warning("Empty news content received")
