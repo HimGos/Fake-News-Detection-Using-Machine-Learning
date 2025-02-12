@@ -71,7 +71,7 @@ try:
             raise
 
     def fake_news(news):
-         """
+        """
         Predicts whether the input news is fake or reliable.
 
         Args:
